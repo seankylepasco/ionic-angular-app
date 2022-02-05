@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Yes Title! </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="ion-content" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Some Weird Title</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <a routerLink="/page">some other page</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+      <input
+        type="text"
+        placeholder="add some course"
+        [(ngModel)]="addcourse"
+      />
+      <button (click)="addCourse()">submit</button>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div *ngIf="isOpen">
+      <input type="text" [(ngModel)]="updatecourse.name " />
+      <button (click)="updateCourse()">save</button>
+    </div>
+    <br />
+    <br />
+    <div *ngFor="let test of tests; let i = index">
+      {{ i+1 }} &nbsp; {{test.name}}
+      <button (click)="deleteCourse(test.id)">delete</button>&nbsp;<button
+        (click)="openUpdate(test)"
+      >
+        update
+      </button>
+    </div>
+  </div>
+</ion-content>
